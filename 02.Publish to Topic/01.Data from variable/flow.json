@@ -1,0 +1,50 @@
+[
+  {
+    "id": "5a019e5.491a36",
+    "type": "inject",
+    "z": "e82810d7.1f604",
+    "name": "Injeção 10Hz",
+    "props": [{ "p": "payload" }],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": "1",
+    "topic": "",
+    "payload": "ros.variable",
+    "payloadType": "global",
+    "x": 170,
+    "y": 500,
+    "wires": [["1f30c624.48ebba"]]
+  },
+  {
+    "id": "c0408dc.4bb107",
+    "type": "comment",
+    "z": "e82810d7.1f604",
+    "name": "Pass global.ros.variable to payload, just once on start up",
+    "info": "",
+    "x": 310,
+    "y": 460,
+    "wires": []
+  },
+  {
+    "id": "1f30c624.48ebba",
+    "type": "ros-publisher",
+    "z": "e82810d7.1f604",
+    "topicname": "/number",
+    "typepackage": "",
+    "typename": "Bool",
+    "x": 800,
+    "y": 500,
+    "wires": []
+  },
+  {
+    "id": "f7090db2.cafd2",
+    "type": "comment",
+    "z": "e82810d7.1f604",
+    "name": "Publish to topic /number",
+    "info": "",
+    "x": 840,
+    "y": 460,
+    "wires": []
+  }
+]

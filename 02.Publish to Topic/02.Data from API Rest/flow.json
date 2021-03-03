@@ -1,0 +1,95 @@
+[
+  {
+    "id": "dc65b4e0.bd70a8",
+    "type": "http in",
+    "z": "2b71d8cc.97abd8",
+    "name": "Request to publish to topic /mytopic",
+    "url": "/api/v1/ros/publish/mytopic",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 260,
+    "y": 1260,
+    "wires": [["c5fc1646.247a08", "af2798cf.aa9d18"]]
+  },
+  {
+    "id": "80e56877.588a28",
+    "type": "http response",
+    "z": "2b71d8cc.97abd8",
+    "name": "",
+    "statusCode": "200",
+    "headers": {},
+    "x": 1020,
+    "y": 1260,
+    "wires": []
+  },
+  {
+    "id": "c5fc1646.247a08",
+    "type": "function",
+    "z": "2b71d8cc.97abd8",
+    "name": "Response",
+    "func": "msg.payload = 'OK';\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 780,
+    "y": 1260,
+    "wires": [["80e56877.588a28"]]
+  },
+  {
+    "id": "8e19ef40.69e74",
+    "type": "comment",
+    "z": "2b71d8cc.97abd8",
+    "name": "API Request (HTTP POST Request)",
+    "info": "",
+    "x": 260,
+    "y": 1220,
+    "wires": []
+  },
+  {
+    "id": "af2798cf.aa9d18",
+    "type": "function",
+    "z": "2b71d8cc.97abd8",
+    "name": "Pass value from request to payload",
+    "func": "msg.payload = msg.req.body.value_passed_by_request;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 500,
+    "y": 1340,
+    "wires": [["52e2a2ae.58b30c", "c5fc1646.247a08"]]
+  },
+  {
+    "id": "52e2a2ae.58b30c",
+    "type": "ros-publisher",
+    "z": "2b71d8cc.97abd8",
+    "topicname": "/mytopic",
+    "typepackage": "",
+    "typename": "String",
+    "x": 780,
+    "y": 1400,
+    "wires": []
+  },
+  {
+    "id": "6f84377b.50d7d8",
+    "type": "comment",
+    "z": "2b71d8cc.97abd8",
+    "name": "Creating API Response",
+    "info": "",
+    "x": 820,
+    "y": 1220,
+    "wires": []
+  },
+  {
+    "id": "6d7b480.d28dfb8",
+    "type": "comment",
+    "z": "2b71d8cc.97abd8",
+    "name": "Publishing to topic /mytopic",
+    "info": "",
+    "x": 830,
+    "y": 1360,
+    "wires": []
+  }
+]

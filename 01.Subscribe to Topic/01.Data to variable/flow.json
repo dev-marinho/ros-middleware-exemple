@@ -1,0 +1,56 @@
+[
+  {
+    "id": "20efe81f.aeb828",
+    "type": "comment",
+    "z": "e82810d7.1f604",
+    "name": "Subscribe to Topic",
+    "info": "",
+    "x": 190,
+    "y": 280,
+    "wires": []
+  },
+  {
+    "id": "8d398c17.3a512",
+    "type": "ros-subscriber",
+    "z": "e82810d7.1f604",
+    "topicname": "/topic",
+    "typepackage": "",
+    "typename": "Float64",
+    "x": 150,
+    "y": 320,
+    "wires": [["a5f8a8de.a1e568"]]
+  },
+  {
+    "id": "a5f8a8de.a1e568",
+    "type": "change",
+    "z": "e82810d7.1f604",
+    "name": "Global ROS Topic Vel",
+    "rules": [
+      {
+        "t": "set",
+        "p": "ros.topic",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 840,
+    "y": 320,
+    "wires": [[]]
+  },
+  {
+    "id": "42d4d080.db6b3",
+    "type": "comment",
+    "z": "e82810d7.1f604",
+    "name": "Save to global variable",
+    "info": "",
+    "x": 840,
+    "y": 280,
+    "wires": []
+  }
+]

@@ -1,0 +1,85 @@
+[
+  {
+    "id": "1a06ee2a.47e4c2",
+    "type": "ros-subscriber",
+    "z": "e82810d7.1f604",
+    "topicname": "/topic",
+    "typepackage": "",
+    "typename": "Float64",
+    "x": 150,
+    "y": 680,
+    "wires": [["a065e5d.c18d518"]]
+  },
+  {
+    "id": "252f0dab.a19312",
+    "type": "change",
+    "z": "e82810d7.1f604",
+    "name": "Global ROS Variable",
+    "rules": [
+      {
+        "t": "set",
+        "p": "ros.topic",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 840,
+    "y": 680,
+    "wires": [[]]
+  },
+  {
+    "id": "a065e5d.c18d518",
+    "type": "delay",
+    "z": "e82810d7.1f604",
+    "name": "Limit 5Hz",
+    "pauseType": "rate",
+    "timeout": "5",
+    "timeoutUnits": "seconds",
+    "rate": "5",
+    "nbRateUnits": "1",
+    "rateUnits": "second",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": true,
+    "x": 420,
+    "y": 680,
+    "wires": [["252f0dab.a19312"]]
+  },
+  {
+    "id": "a7b97923.46dc88",
+    "type": "comment",
+    "z": "e82810d7.1f604",
+    "name": "5 reads per second",
+    "info": "",
+    "x": 450,
+    "y": 640,
+    "wires": []
+  },
+  {
+    "id": "d518ebe5.296998",
+    "type": "comment",
+    "z": "e82810d7.1f604",
+    "name": "Subscribe to Topic",
+    "info": "",
+    "x": 190,
+    "y": 640,
+    "wires": []
+  },
+  {
+    "id": "26056f65.f1a46",
+    "type": "comment",
+    "z": "e82810d7.1f604",
+    "name": "Save to global variable",
+    "info": "",
+    "x": 840,
+    "y": 640,
+    "wires": []
+  }
+]
